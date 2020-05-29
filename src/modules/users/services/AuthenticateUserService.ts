@@ -3,7 +3,7 @@ import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import authConfig from '@config/auth';
 import AppError from '@shared/errors/AppError';
-import IUsersRepository from '../infra/typeorm/repositories/UserRepository';
+import IUsersRepository from '../repositories/IUsersRepository';
 import User from '../infra/typeorm/entities/User';
 
 interface IRequest {
