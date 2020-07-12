@@ -42,8 +42,6 @@ export default class ListProviderAppointmentsService {
         },
       );
 
-      console.log('Queried from database');
-
       await this.cacheProvider.save(cacheKey, appointments);
     }
 
