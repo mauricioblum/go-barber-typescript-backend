@@ -16,14 +16,15 @@ jobs:
       with:
         node-version: 12.x
         
-      # Instalar dependencias
+    # Instalar dependencias
     - name: Install dependencies
       run: yarn
     
-      # Executar build
+    # Executar build
     - name: Run build
       run: yarn build
     
+    # Copiar código para Digital Ocean
     - name: copy /dist to Digital Ocean
       uses: appleboy/scp-action@master
       with:
@@ -31,15 +32,6 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
         key: ${{secrets.SSH_KEY }}
-        source: "."
+        source: ".,!node_modules"
         target: "~/app/go-barber-typescript-backend"
-      
-
-    
-    # Copiar pasta dist para dentro da Digital Ocean
-    
-    # Substitutir o código existente na pasta "dist" pelo novo código
-    # Executar yarn na Digital Ocean
-    # Executar migrations do TypeORM
-    # Restart no servidor Node.js
     
